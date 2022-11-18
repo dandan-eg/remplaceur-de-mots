@@ -42,6 +42,9 @@ func ProcessLine(text, old, new string) (found bool, res string, count int) {
 }
 
 func FindReplaceFile(src, old, new, dst string) (occ int, lines []int, err error) {
+	old += " "
+	new += " "
+
 	file, err := os.Open(src)
 	defer func(file *os.File) {
 		_ = file.Close()
